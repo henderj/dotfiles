@@ -108,7 +108,7 @@ nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <leader>p "*p
 
-vnoremap <leader>c "*y
+vnoremap <leader>y "*y
 
 " }}}
 

@@ -4,6 +4,7 @@ alias boomi='ssh adm.joshhend@boomi1.byu.edu -p 22222'
 alias iics='ssh adm.joshhend@hera.byu.edu -p 22222'
 
 alias cdcode='cd /c/code'
+alias gs='git status'
 
 function virtualenv_info() {
     if test -z "$VIRTUAL_ENV" ; then

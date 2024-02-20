@@ -107,6 +107,8 @@ inoremap <C-Space> <C-x><C-o>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <leader>p "*p
+nnoremap <space> za
+nnoremap <leader>a ggVG
 
 vnoremap <leader>y "*y
 

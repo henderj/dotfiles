@@ -111,6 +111,7 @@ nnoremap <space> za
 nnoremap <leader>a ggVG
 
 vnoremap <leader>y "*y
+vnoremap <leader>v "*v
 
 " }}}
 

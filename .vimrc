@@ -27,9 +27,6 @@ set relativenumber
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 
-" Highlight cursor line underneath the cursor vertically.
-set cursorcolumn
-
 " Set shift witdth to 4 spaces.
 set shiftwidth=4
 

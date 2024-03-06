@@ -3,3 +3,4 @@
 	name = Josh Hendershot
 [core]
 	symlinks = true
+    autocrlf = true

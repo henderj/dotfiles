@@ -1,5 +1,7 @@
 PROMPT_COMMAND='history -a'
 
+export HISTCONTROL=ignoreboth
+
 alias boomi='ssh adm.joshhend@boomi1.byu.edu -p 22222'
 alias iics='ssh adm.joshhend@hera.byu.edu -p 22222'
 

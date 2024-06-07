@@ -13,14 +13,6 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
---  use({
---	  'rose-pine/neovim',
---	  as = 'rose-pine',
---	  config = function()
---		  vim.cmd('colorscheme rose-pine')
---	  end
---  })
---
   use('folke/tokyonight.nvim')
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -41,5 +33,13 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 	  }
   }
+
+  use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+          'nvim-tree/nvim-web-devicons'
+      },
+  }
+  use('nvim-tree/nvim-web-devicons')
 
 end)

@@ -4,20 +4,28 @@ lsp.preset("recommended")
 
 
 local cmp = require('cmp')
+local cmp_action = lsp.cmp_action()
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = cmp.mapping.preset.insert({
 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-y>'] = cmp.mapping.confirm({ select = true }),
 	["<C-Space>"] = cmp.mapping.complete(),
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 })
 
 cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+    },
 	mapping = cmp_mappings
 })
 
 lsp.set_preferences({
-	sign_icons = { }
+	sign_icons = {
+    }
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -45,8 +53,19 @@ require('mason-lspconfig').setup({
 		function(server_name)
 			require('lspconfig')[server_name].setup({})
 		end,
+
+        lua_ls = function ()
+            require('lspconfig').lua_ls.setup({
+                settings = {
+                    Lua = {
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true)
+                        }
+                    }
+                }
+            })
+        end
 	},
 })
-
 
 lsp.setup()

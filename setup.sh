@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to your dotfiles repository
-dotfiles_path="/path/to/your/dotfiles/repo"
+dotfiles_path="."
 
 # Directories inside .config that you want to symlink
 config_dirs=("nvim")

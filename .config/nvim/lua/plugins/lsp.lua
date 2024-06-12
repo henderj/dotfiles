@@ -5,6 +5,7 @@ local servers = {
 return {
   {
     'neovim/nvim-lspconfig',
+    event = 'VeryLazy',
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -79,9 +80,11 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
+    lazy = true,
   },
   {
     "hrsh7th/cmp-nvim-lsp",
+    event = 'VeryLazy',
     dependencies = {
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-buffer",

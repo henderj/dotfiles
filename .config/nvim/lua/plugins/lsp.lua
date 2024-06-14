@@ -5,7 +5,7 @@ local servers = {
 return {
   {
     'neovim/nvim-lspconfig',
-    event = 'VeryLazy',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -39,14 +39,17 @@ return {
         callback = on_attach,
       })
 
-      local default_setup = function(server)
-        require('lspconfig')[server].setup({
-          capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        })
+      local load_capabilities = function()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+        return capabilities
       end
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+      local default_setup = function(server)
+        require('lspconfig')[server].setup({
+          capabilities = load_capabilities(),
+        })
+      end
 
       require("mason").setup({})
       require("mason-lspconfig").setup({
@@ -55,7 +58,7 @@ return {
           default_setup,
           lua_ls = function()
             lspconfig.lua_ls.setup({
-              capabilities = capabilities,
+              capabilities = load_capabilities(),
               settings = {
                 Lua = {
                   runtime = {
@@ -80,13 +83,19 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
+    config = true,
     lazy = true,
   },
   {
     "hrsh7th/cmp-nvim-lsp",
-    event = 'VeryLazy',
+    lazy = true,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    lazy = true,
     dependencies = {
-      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "L3MON4D3/LuaSnip",
     },

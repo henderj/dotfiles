@@ -1,9 +1,3 @@
-if [ -f /etc/skel/.bashrc ]; then
-    source /etc/skel/.bashrc
-fi
-
-PROMPT_COMMAND='history -a'
-
 export HISTCONTROL=ignoreboth
 
 alias cdcode='cd /c/code'

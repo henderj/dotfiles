@@ -3,6 +3,11 @@ export HISTCONTROL=ignoreboth
 alias cdcode='cd /c/code'
 alias gs='git status'
 
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+export GIT_EDITOR="$EDITOR"
+
 function virtualenv_info() {
     if test -z "$VIRTUAL_ENV" ; then
         PYTHON_VIRTUALENV=""

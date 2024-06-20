@@ -17,6 +17,15 @@ map("n", "J", "mzJ`z")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- map("x", "<leader>p", "\"*p") -- change
+map({"n", "v"}, "<leader>p", [["+p]])
+map({"n", "v"}, "<leader>P", [["+P]])
 
 map({"n", "v"}, "<leader>y", [["+y]])
+map({"n", "v"}, "<leader>Y", [["+Y]])
+
+map("n", "<C-n>", "<cmd>cnext<cr>zz")
+map("n", "<C-p>", "<cmd>cprev<cr>zz")
+map("n", "<leader>n", "<cmd>lnext<cr>zz")
+map("n", "<leader>p", "<cmd>lprev<cr>zz")
+
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

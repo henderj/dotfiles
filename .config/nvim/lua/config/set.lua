@@ -39,4 +39,4 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.cursorline = true
 
 vim.g.markdown_folding = 1
-vim.opt.conceallevel = 2
+-- vim.opt.conceallevel = 2

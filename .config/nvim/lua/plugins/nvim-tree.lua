@@ -6,7 +6,7 @@ return {
   lazy = false,
   keys = {
     { '<leader>et', function() require('nvim-tree.api').tree.toggle({ find_file = true }) end, desc = "Toggle nvim-tree" },
-    { '<leader>ef', '<cmd>NvimTreeFocus<cr>', desc = "Focus nvim-tree" },
+    { '<leader>ef', function() require('nvim-tree.api').tree.focus({ find_file = true }) end, desc = "Focus nvim-tree" },
     { '<leader>er',  '<cmd>NvimTreeRefresh<cr>', desc = "Refresh nvim-tree" },
   },
   config = true

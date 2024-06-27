@@ -37,6 +37,9 @@ return {
     dependencies = {
       'nvim-treesitter/nvim-treesitter'
     },
-    event = { 'BufReadPre', 'BufNewFile' }
+    event = { 'BufReadPre', 'BufNewFile' },
+    keys = {
+      { '[c', function() require('treesitter-context').go_to_context(vim.v.count1) end, desc = "Jump to context" , { silent = true } }
+    }
   }
 }

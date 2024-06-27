@@ -11,7 +11,16 @@ return {
     config = function()
       require('nvim-treesitter.configs').setup {
         -- A list of parser names, or "all"
-        ensure_installed = { "javascript", "typescript", "c", "lua", "vim", "vimdoc", "python", "rust" },
+        ensure_installed = {
+          "javascript",
+          "typescript",
+          "c",
+          "lua",
+          "vim",
+          "vimdoc",
+          "python",
+          "rust"
+        },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
@@ -39,7 +48,14 @@ return {
     },
     event = { 'BufReadPre', 'BufNewFile' },
     keys = {
-      { '[c', function() require('treesitter-context').go_to_context(vim.v.count1) end, desc = "Jump to context" , { silent = true } }
+      {
+        '[c',
+        function()
+          require('treesitter-context').go_to_context(vim.v.count1)
+        end,
+        desc = "Jump to context",
+        { silent = true }
+      }
     }
   }
 }

@@ -42,3 +42,8 @@ vim.g.markdown_folding = 1
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- For large files (>10k lines), disable foldmethod=expr, use foldmethod=indent
+vim.cmd([[
+  autocmd BufReadPost * if line('$') > 10000 | setlocal foldmethod=indent | endif
+]])

@@ -84,4 +84,11 @@ return {
     config = true,
     lazy = true,
   },
+  {
+    "icholy/lsplinks.nvim",
+    config = true,
+    keys = {
+      { "gx", function() require("lsplinks").gx() end, desc = "Open link" }
+    }
+  },
 }

@@ -47,3 +47,6 @@ vim.opt.splitbelow = true
 vim.cmd([[
   autocmd BufReadPost * if line('$') > 10000 | setlocal foldmethod=indent | endif
 ]])
+
+-- For long lines
+vim.opt.synmaxcol=200

@@ -12,11 +12,20 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      -- vim.diagnostic.config({...})
-
       local lspconfig = require("lspconfig")
 
-      -- local signs = { ... }
+      local signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = '',
+          [vim.diagnostic.severity.WARN] = '',
+          [vim.diagnostic.severity.INFO] = '',
+          [vim.diagnostic.severity.HINT] = '',
+        }
+      }
+
+      vim.diagnostic.config({
+        signs = signs
+      })
 
       local on_attach = function(_, bufnr)
         local map = vim.keymap.set
@@ -28,7 +37,8 @@ return {
         map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", { buffer = bufnr, desc = "View references" })
         map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { buffer = bufnr, desc = "Signature help" })
         map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr, desc = "Rename" })
-        map({ "n", "x" }, "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", { buffer = bufnr, desc = "Format code" })
+        map({ "n", "x" }, "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>",
+          { buffer = bufnr, desc = "Format code" })
         map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr, desc = "Code action" })
       end
 
@@ -80,7 +90,8 @@ return {
                 plugins = {
                   {
                     name = '@vue/typescript-plugin',
-                    location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server',
+                    location = require('mason-registry').get_package('vue-language-server'):get_install_path() ..
+                    '/node_modules/@vue/language-server',
                     languages = { 'vue' },
                   },
                 },

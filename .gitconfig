@@ -12,3 +12,5 @@
 	helper = !/usr/bin/gh auth git-credential
 [pull]
   rebase = false
+[push]
+  autoSetupRemote = true

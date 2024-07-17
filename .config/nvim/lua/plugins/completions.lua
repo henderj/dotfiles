@@ -10,6 +10,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
       "L3MON4D3/LuaSnip",
     },
     config = function()
@@ -22,20 +23,6 @@ return {
           { name = 'buffer' },
         },
         mapping = cmp.mapping.preset.insert({
-          -- ['<CR>'] = cmp.mapping(function(fallback)
-          --   if cmp.visible() then
-          --     if luasnip.expandable() then
-          --       luasnip.expand()
-          --     else
-          --       cmp.confirm({
-          --         select = true,
-          --       })
-          --     end
-          --   else
-          --     fallback()
-          --   end
-          -- end),
-
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -66,6 +53,16 @@ return {
         sources = {
           { name = 'buffer' }
         }
+      })
+
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        }),
+        matching = { disallow_symbol_nonprefix_matching = false }
       })
     end,
   },

@@ -39,7 +39,7 @@ return {
         map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr, desc = "Rename" })
         map({ "n", "x" }, "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>",
           { buffer = bufnr, desc = "Format code" })
-        map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr, desc = "Code action" })
+        -- map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr, desc = "Code action" })
       end
 
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -119,4 +119,10 @@ return {
       { "gx", function() require("lsplinks").gx() end, desc = "Open link" }
     }
   },
+  {
+    "aznhe21/actions-preview.nvim",
+    keys = {
+      { "<leader>ca", function() require("actions-preview").code_actions() end, mode = { "n", "v" }, desc = "Code actions"}
+    }
+  }
 }

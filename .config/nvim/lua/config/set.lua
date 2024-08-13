@@ -44,9 +44,15 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- For large files (>10k lines), disable foldmethod=expr, use foldmethod=indent
-vim.cmd([[
-  autocmd BufReadPost * if line('$') > 10000 | setlocal foldmethod=indent | endif
-]])
+-- vim.cmd([[
+--   autocmd BufReadPost * if line('$') > 10000 | setlocal foldmethod=indent | endif
+-- ]])
 
 -- For long lines
 vim.opt.synmaxcol=200
+
+vim.opt.foldcolumn = '1'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = 'eob: ,fold: ,foldopen:,foldsep:│,foldclose:'

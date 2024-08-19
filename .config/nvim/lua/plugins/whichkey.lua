@@ -5,11 +5,6 @@ return {
   config = function()
     local wk = require("which-key")
     wk.setup({
-      modes = {
-        defer = {
-          v = true,
-        },
-      },
       expand = 1,
     })
 

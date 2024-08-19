@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Path to your dotfiles repository
-dotfiles_path="/home/joshhend/code/dotfiles"
+dotfiles_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "dotfiles dir path: $dotfiles_path"
 
 # Directories inside .config that you want to symlink
 config_dirs=("nvim")
@@ -15,7 +17,10 @@ for file in $(ls -A $dotfiles_path); do
         # If the user confirms
         if [[ $answer == "y" ]]; then
             # Remove the existing dotfile from the home directory
-            rm ~/$file
+            if [ -f ~/$file ]; then
+              echo "$file exists. Overwriting it..."
+              rm ~/$file
+            fi
             # Create a symlink to the dotfile in the repo
             ln -s $dotfiles_path/$file ~/$file
             echo "$file has been replaced with a symlink."

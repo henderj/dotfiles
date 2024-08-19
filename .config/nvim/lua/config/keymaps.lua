@@ -29,3 +29,5 @@ map("n", "<C-p>", "<cmd>cprev<cr>zz")
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 map({"i", "c"}, "<C-h>", "<C-w>", { silent = true })
+
+map("n", "<leader>q", "<cmd>q<cr>")

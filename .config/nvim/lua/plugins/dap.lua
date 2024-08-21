@@ -39,7 +39,7 @@ return {
       {
         'microsoft/vscode-js-debug',
         lazy = true,
-        build = 'npm install --legacy-peer-deps && git restore . && npx gulp vsDebugServerBundle && mv dist out'
+        build = 'rm -rf out && npm install --legacy-peer-deps && git restore . && npx gulp vsDebugServerBundle && mv dist out'
       }
     },
     opts = {

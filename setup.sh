@@ -11,7 +11,7 @@ config_dirs=("nvim")
 # Iterate over the files in the dotfiles repository
 for file in $(ls -A $dotfiles_path); do
     # If the file is a dotfile
-    if [[ $file == .* && $file != ".config" ]]; then
+    if [[ $file == .* && $file != ".config" && $file != ".git" ]]; then
         echo "Do you want to replace $file? (y/n)"
         read answer
         # If the user confirms
@@ -41,3 +41,11 @@ for dir in "${config_dirs[@]}"; do
         echo ".config/$dir has been replaced with a symlink."
     fi
 done
+
+echo "Do you want to replace tmux.remote.conf? (y/n)"
+read answer
+if [[ $answer == "y" ]]; then
+  rm ~/.tmux/tmux.remote.conf
+  ln -s $dotfiles_path/tmux.remote.conf ~/.tmux/tmux.remote.conf
+  echo "~/.tmux/tmux.remote.conf has been replaced with a symlink"
+fi

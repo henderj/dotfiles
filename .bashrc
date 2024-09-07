@@ -24,5 +24,5 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
-PS1="\n\t \[\e[32m\]\w\[\e[34m\]\$(virtualenv_info)\[\e[33m\]\$(__git_ps1)\[\e[0m\]
+PS1="\n\[\e[31m\]\u\[\e[35m\]@\[\e[31m\]\h \[\e[32m\]\w\[\e[34m\]\$(virtualenv_info)\[\e[33m\]\$(__git_ps1)\[\e[0m\]
 $ "

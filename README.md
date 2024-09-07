@@ -10,6 +10,13 @@
 
 - nvim
 
+# dependencies
+
+- nvim
+- tmux
+- [fzf](https://github.com/junegunn/fzf/)
+- 
+
 # setup
 
 run `setup.sh`

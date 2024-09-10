@@ -1,6 +1,14 @@
 local servers = {
   "lua_ls",
-  "tsserver"
+  "ts_ls",
+  "eslint",
+  "html",
+  "cssls",
+  "jsonls",
+  "marksman",
+  "prettier",
+  "clangd",
+  "clang-format"
 }
 
 return {
@@ -55,9 +63,6 @@ return {
       end
 
       local default_setup = function(server)
-        if server == 'tsserver' then
-          server = 'ts_ls'
-        end
         require('lspconfig')[server].setup({
           capabilities = load_capabilities(),
         })
@@ -88,7 +93,7 @@ return {
               },
             })
           end,
-          tsserver = function()
+          ts_ls = function()
             lspconfig.ts_ls.setup({
               init_options = {
                 plugins = {

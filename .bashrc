@@ -2,6 +2,7 @@ export HISTCONTROL=ignoreboth
 
 alias cdcode='cd /c/code'
 alias gs='git status'
+alias byu='ssh joshhend@moat.cs.byu.edu'
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"

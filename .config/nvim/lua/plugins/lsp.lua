@@ -6,9 +6,7 @@ local servers = {
   "cssls",
   "jsonls",
   "marksman",
-  "prettier",
-  "clangd",
-  "clang-format"
+  "clangd"
 }
 
 return {

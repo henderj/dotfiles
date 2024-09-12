@@ -11,7 +11,7 @@ config_dirs=("nvim")
 # Iterate over the files in the dotfiles repository
 for file in $(ls -A $dotfiles_path); do
     # If the file is a dotfile
-    if [[ $file == .* && $file != ".config" && $file != ".git" ]]; then
+    if [[ $file == .* && $file != ".config" && $file != ".git" && $file != ".gitignore" ]]; then
         echo "Do you want to replace $file? (y/n)"
         read answer
         # If the user confirms

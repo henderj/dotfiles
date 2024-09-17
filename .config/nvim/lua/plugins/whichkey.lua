@@ -9,7 +9,7 @@ return {
     })
 
     wk.add({
-      { "<leader>g", group = "git", icon = "󰊢" },
+      { "<leader>g", group = "git" },
       { "<leader>e", group = "nvim-tree", icon = "" },
       { "<leader>L", desc = "Lazy", icon = "󰒲 " },
       { "<leader>s", desc = "Replace word" },
@@ -17,11 +17,12 @@ return {
       { "<leader>t", group = "Telescope" },
       { "<leader>m", group = "Markdown", icon = "" },
       { "<leader>x", group = "Trouble", icon = "󰔫" },
-      { "<leader>c", group = "Code", icon = "" },
+      { "<leader>c", group = "Code" },
       { "<leader>y", desc = "yank to clipboard" },
       { "<leader>Y", desc = "Yank to clipboard" },
       { "<leader>p", desc = "put from clipboard" },
       { "<leader>P", desc = "Put from clipboard" },
+      { "<leader>d", desc = "Debug" },
     })
   end,
   keys = {

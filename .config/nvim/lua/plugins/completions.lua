@@ -4,6 +4,11 @@ return {
     lazy = true,
   },
   {
+    "L3MON4D3/LuaSnip",
+    lazy = true,
+    build = "make install_jsregexp"
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = { 'InsertEnter', 'CmdlineEnter' },
     lazy = true,

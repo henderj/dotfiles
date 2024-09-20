@@ -14,4 +14,11 @@ return {
       require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
     end, desc = 'Grep (Telescope)' },
   },
+  opts = {
+    defaults = {
+      file_ignore_patterns = {
+        "node_modules"
+      }
+    }
+  }
 }

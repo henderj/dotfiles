@@ -31,3 +31,5 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map({"i", "c", "t"}, "<C-h>", "<C-w>", { silent = true })
 
 map("n", "<leader>q", "<cmd>q<cr>")
+
+map("n", "<leader>mw", "<cmd>set wrap!<cr>")

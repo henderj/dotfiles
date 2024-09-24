@@ -17,6 +17,7 @@ return {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      "nvimdev/lspsaga.nvim"
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -43,7 +44,7 @@ return {
         map("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", { buffer = bufnr, desc = "Go to type definition" })
         map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", { buffer = bufnr, desc = "View references" })
         map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { buffer = bufnr, desc = "Signature help" })
-        map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr, desc = "Rename" })
+        map("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", { buffer = bufnr, desc = "Rename" })
         map({ "n", "x" }, "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>",
           { buffer = bufnr, desc = "Format code" })
         -- map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr, desc = "Code action" })

@@ -4,6 +4,8 @@ alias cdcode='cd /c/code'
 alias gs='git status'
 alias byu='ssh joshhend@moat.cs.byu.edu'
 
+alias serve='python3 -m http.server'
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 

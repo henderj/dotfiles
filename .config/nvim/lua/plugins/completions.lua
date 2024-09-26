@@ -26,6 +26,7 @@ return {
         sources = {
           { name = 'nvim_lsp' },
           { name = 'buffer' },
+          { name = 'lazydev', group_index = 0}
         },
         mapping = cmp.mapping.preset.insert({
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -70,5 +71,10 @@ return {
         matching = { disallow_symbol_nonprefix_matching = false }
       })
     end,
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    config = true,
   },
 }

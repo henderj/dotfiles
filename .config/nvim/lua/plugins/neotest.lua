@@ -37,7 +37,10 @@ return {
       "nvim-lua/plenary.nvim"
     },
     opts = {
-      auto_reload = true
+      auto_reload = true,
+      summary = {
+        min_coverage = 60.0
+      }
     },
     keys = {
       { "<leader>jc", function() require("coverage").load(true) end, desc = "Load and show coverage" },

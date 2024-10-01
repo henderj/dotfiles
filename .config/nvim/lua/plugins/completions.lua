@@ -6,6 +6,7 @@ return {
   {
     "L3MON4D3/LuaSnip",
     lazy = true,
+    version = "v2.*",
     build = "make install_jsregexp"
   },
   {
@@ -17,10 +18,13 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
       "L3MON4D3/LuaSnip",
+      "onsails/lspkind-nvim",
     },
     config = function()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
+      local lspkind = require('lspkind')
+      require("luasnip.loaders.from_snipmate").lazy_load()
 
       cmp.setup({
         sources = {
@@ -48,10 +52,28 @@ return {
               fallback()
             end
           end, { "i", "s" }),
+          ['<C-e>'] = cmp.mapping.close(),
+          ['<C-CR>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              if luasnip.expandable() then
+                luasnip.expand()
+              else
+                cmp.confirm({
+                  behavior = cmp.ConfirmBehavior.Replace,
+                  select = true
+                })
+              end
+            else
+              fallback()
+            end
+          end),
 
           -- Ctrl-space triggers completion menu
           ['<C-Space>'] = cmp.mapping.complete(),
         }),
+        formatting = {
+          format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+        }
       })
 
       cmp.setup.cmdline({ '/', '?' }, {

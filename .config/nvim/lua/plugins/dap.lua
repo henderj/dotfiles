@@ -2,12 +2,12 @@ return {
   {
     'mfussenegger/nvim-dap',
     keys = {
-      { '<F5>', function() require('dap').continue() end, desc = 'Continue (DAP)'},
-      { '<F10>', function() require('dap').step_over() end, desc = 'Step over (DAP)'},
-      { '<F11>', function() require('dap').step_into() end, desc = 'Step into (DAP)'},
-      { '<F12>', function() require('dap').step_out() end, desc = 'Step out (DAP)'},
-      { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'Toggle breakpoint (DAP)'},
-      { '<leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = 'Set conditional breakpoint (DAP)'},
+      { '<F5>',       function() require('dap').continue() end,                                             desc = 'Continue (DAP)' },
+      { '<F10>',      function() require('dap').step_over() end,                                            desc = 'Step over (DAP)' },
+      { '<F11>',      function() require('dap').step_into() end,                                            desc = 'Step into (DAP)' },
+      { '<F12>',      function() require('dap').step_out() end,                                             desc = 'Step out (DAP)' },
+      { '<leader>db', function() require('dap').toggle_breakpoint() end,                                    desc = 'Toggle breakpoint (DAP)' },
+      { '<leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = 'Set conditional breakpoint (DAP)' },
     },
     config = function()
       local js_based_languages = { "javascript", "typescript" }
@@ -39,7 +39,8 @@ return {
       {
         'microsoft/vscode-js-debug',
         lazy = true,
-        build = 'rm -rf out && npm install --legacy-peer-deps && git restore . && npx gulp vsDebugServerBundle && mv dist out'
+        build =
+        'rm -rf out && npm install --legacy-peer-deps && git restore . && npx gulp vsDebugServerBundle && mv dist out'
       }
     },
     opts = {
@@ -48,13 +49,24 @@ return {
     }
   },
   {
+    'mfussenegger/nvim-dap-python',
+    dependencies = {
+      'mfussenegger/nvim-dap'
+    },
+    ft = 'python',
+    config = function()
+      require('dap-python').setup("python")
+    end
+  },
+  {
     'rcarriga/nvim-dap-ui',
     dependencies = { 'mfussenegger/nvim-dap' },
     keys = {
-      { '<leader>du', function() require('dapui').toggle() end, desc = 'Toggle UI (DAP)'}
+      { '<leader>du', function() require('dapui').toggle() end, desc = 'Toggle UI (DAP)' }
     },
     config = function()
       require('dapui').setup()
+      vim.fn.sign_define('DapBreakpoint', { text = '🛑', texthl = '', linehl = '', numhl = '' })
 
       local dap, dapui = require('dap'), require('dapui')
 

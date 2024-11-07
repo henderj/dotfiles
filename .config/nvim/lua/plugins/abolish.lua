@@ -1,9 +1,7 @@
 return {
   'tpope/vim-abolish',
   lazy = false,
-  cmd = {
-    'Abolish',
-    'Subvert',
-    'S',
-  }
+  config = function ()
+    vim.cmd([[Abolish cosnt const]])
+  end
 }

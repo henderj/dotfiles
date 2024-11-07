@@ -32,6 +32,13 @@ return {
     }
   },
   {
+      "nvim-neotest/neotest-jest",
+      config = function ()
+        vim.api.nvim_set_keymap("n", "<leader>jw", "<cmd>lua require('neotest').run.run({ jestCommand = 'npm test -- --watch' })<cr>", { desc = "Run all in watch mode (Neotest)"})
+        vim.api.nvim_set_keymap("n", "<leader>ju", "<cmd>lua require('neotest').run.run({ jestCommand = 'npm test -- -u' })<cr>", { desc = "Update snapshot for current test (Neotest)"})
+      end
+  },
+  {
     "andythigpen/nvim-coverage",
     dependencies = {
       "nvim-lua/plenary.nvim"

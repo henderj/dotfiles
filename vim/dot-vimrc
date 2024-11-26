@@ -1,5 +1,5 @@
-" Set leader to ,
-let mapleader = ","
+" Set leader to <space>
+let mapleader = " "
 
 " Change default cursor style
 let &t_SI = "\e[6 q"
@@ -77,24 +77,6 @@ set omnifunc=syntaxcomplete#Complete
 set fileformat=dos
 
 
-" PLUGINS -------------------------------------------------- {{{
-
-" if empty(glob('~/.vim/autoload/plug.vim'))
-    " silent execut '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-" endif
-
-" Plugin code goes here.
-
-" call plug#begin('~/.vim/plugged')
-
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'NLKNguyen/papercolor-theme'
-
-" call plug#end()
-
-" }}}
-
 
 " MAPPINGS ------------------------------------------------- {{{
 
@@ -114,28 +96,6 @@ vnoremap <leader>p "*p
 
 " }}}
 
-
-" VIMSCRIPT ------------------------------------------------ {{{
-
-" This will enable code folding.
-" Use the marker method of folding.
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-" More Vimscripts code goes here.
-
-" }}}
-
-
-" STATUS LINE ---------------------------------------------- {{{
-
-" Status bar code goes here.
-
-" }}}
-
 set t_Co=256
 
 set background=dark
-" colorscheme molokai

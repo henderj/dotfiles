@@ -26,3 +26,8 @@ stow --dotfiles -v -R -t ~ \
     nvim \
     tmux \
     vim
+
+bash < <(curl -sSL https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+gvm install go1.4 -B
+gvm use go1.4
+export GOROOT_BOOTSTRAP=$GOROOT

@@ -1,8 +1,13 @@
+if [ -f /etc/skel/.bashrc ]; then
+    source /etc/skel/.bashrc
+fi
+
 export HISTCONTROL=ignoreboth
 
 alias cdcode='cd /c/code'
 alias gs='git status'
 alias byu='ssh joshhend@moat.cs.byu.edu'
+alias byus='ssh joshhend@moat.cs.byu.edu -i ~/.ssh/id_byuschizo'
 
 alias serve='python3 -m http.server'
 

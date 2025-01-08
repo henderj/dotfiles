@@ -11,7 +11,7 @@ alias byus='ssh joshhend@moat.cs.byu.edu -i ~/.ssh/id_byuschizo'
 
 alias serve='python3 -m http.server'
 
-export VISUAL=nvim
+export VISUAL="/opt/nvim-linux64/bin/nvim"
 export EDITOR="$VISUAL"
 
 export GIT_EDITOR="$EDITOR"

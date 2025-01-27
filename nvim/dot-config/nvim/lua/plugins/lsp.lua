@@ -35,8 +35,10 @@ return {
         signs = signs
       })
 
-      local on_attach = function(_, bufnr)
+      local on_attach = function(args)
         local map = vim.keymap.set
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
         map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { buffer = bufnr, desc = "Hover" })
         map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { buffer = bufnr, desc = "Go to definition" })
         map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { buffer = bufnr, desc = "Go to declaration" })
@@ -47,8 +49,20 @@ return {
         map("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", { buffer = bufnr, desc = "Rename" })
         map({ "n", "x" }, "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<cr>",
           { buffer = bufnr, desc = "Format code" })
+        map('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { buffer = bufnr, desc = "Signature help" })
         -- map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr, desc = "Code action" })
+
+        if client and client.supports_method('textDocument/formatting') then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = args.buf,
+            callback = function()
+              vim.lsp.buf.format { async = false, bufnr = bufnr, id = args.data.client_id }
+            end,
+          })
+        end
       end
+
+      vim.lsp.inlay_hint.enable(true)
 
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = "LSP action",
@@ -69,6 +83,7 @@ return {
 
       require("mason").setup({})
       require("mason-lspconfig").setup({
+        automatic_installation = true,
         ensure_installed = servers,
         handlers = {
           default_setup,
@@ -94,12 +109,13 @@ return {
           end,
           ts_ls = function()
             lspconfig.ts_ls.setup({
+              capabilities = load_capabilities(),
               init_options = {
                 plugins = {
                   {
                     name = '@vue/typescript-plugin',
                     location = require('mason-registry').get_package('vue-language-server'):get_install_path() ..
-                    '/node_modules/@vue/language-server',
+                        '/node_modules/@vue/language-server',
                     languages = { 'vue' },
                   },
                 },
@@ -111,8 +127,29 @@ return {
             lspconfig.volar.setup({})
           end,
           pyright = function()
-            lspconfig.pyright.setup({})
-          end
+            lspconfig.pyright.setup({
+              capabilities = load_capabilities(),
+            })
+          end,
+          html = function()
+            lspconfig.html.setup({
+              capabilities = load_capabilities(),
+              filetypes = { 'html', 'gotmpl' },
+            })
+          end,
+          gopls = function()
+            lspconfig.gopls.setup({
+              capabilities = load_capabilities(),
+              settings = {
+                gopls = {
+                  gofumpt = true,
+                  hints = {
+                    parameterNames = true,
+                  }
+                }
+              }
+            })
+          end,
         },
       })
     end
@@ -133,7 +170,7 @@ return {
   {
     "aznhe21/actions-preview.nvim",
     keys = {
-      { "<leader>ca", function() require("actions-preview").code_actions() end, mode = { "n", "v" }, desc = "Code actions"}
+      { "<leader>ca", function() require("actions-preview").code_actions() end, mode = { "n", "v" }, desc = "Code actions" }
     }
   }
 }

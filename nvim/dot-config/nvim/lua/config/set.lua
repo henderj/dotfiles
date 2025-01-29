@@ -3,9 +3,9 @@ vim.opt.relativenumber = true
 
 vim.opt.showmode = false
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
@@ -29,21 +29,21 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime       = 50
 
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn      = "100"
 
-vim.g.mapleader = " "
+vim.g.mapleader          = " "
 
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.cursorline = true
+vim.opt.cursorline       = true
 
-vim.g.markdown_folding = 1
+vim.g.markdown_folding   = 1
 
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.splitright       = true
+vim.opt.splitbelow       = true
 
 -- For large files (>10k lines), disable foldmethod=expr, use foldmethod=indent
 -- vim.cmd([[
@@ -51,15 +51,15 @@ vim.opt.splitbelow = true
 -- ]])
 
 -- For long lines
-vim.opt.synmaxcol=200
+vim.opt.synmaxcol        = 200
 
-vim.opt.foldcolumn = '1'
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
-vim.opt.fillchars = 'eob: ,fold: ,foldopen:┤,foldsep:│,foldclose:┼'
+vim.opt.foldcolumn       = '1'
+vim.opt.foldlevel        = 99
+vim.opt.foldlevelstart   = 99
+vim.opt.foldenable       = true
+vim.opt.fillchars        = 'eob: ,fold: ,foldopen:┤,foldsep:│,foldclose:┼'
 
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.list             = true
+vim.opt.listchars        = { tab = '» ', trail = '·', nbsp = '␣' }
 
-vim.opt.linebreak = true
+vim.opt.linebreak        = true

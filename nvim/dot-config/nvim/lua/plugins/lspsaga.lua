@@ -1,15 +1,15 @@
 return {
-  'nvimdev/lspsaga.nvim',
-  opts = {
-    lightbulb = {
-      virtual_text = false
+    'nvimdev/lspsaga.nvim',
+    opts = {
+        lightbulb = {
+            enable = false
+        },
+        rename = {
+            in_select = false
+        }
     },
-    rename = {
-      in_select = false
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter',
+        'nvim-tree/nvim-web-devicons'
     }
-  },
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-tree/nvim-web-devicons'
-  }
 }

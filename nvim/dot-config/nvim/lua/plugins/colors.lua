@@ -15,13 +15,28 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
+            require("catppuccin").setup({
+                transparent_background = true,
+                term_colors = true,
+                integrations = {
+                    avante = true,
+                    cmp = true,
+                    fzf = true,
+                    harpoon = true,
+                    illuminate = true,
+                    lsp_saga = true,
+                    lsp_trouble = true,
+                    mason = true,
+                    nvimtree = true,
+                    noice = true,
+                    nvim_surround = true,
+                    telescope = true,
+                    treesitter = true,
+                    treesitter_context = true,
+                    which_key = true,
+                }
+            })
             vim.cmd([[colorscheme catppuccin]])
-            vim.cmd [[
-              highlight Normal guibg=none
-              highlight NonText guibg=none
-              highlight Normal ctermbg=none
-              highlight NonText ctermbg=none
-            ]]
         end,
     }
 }

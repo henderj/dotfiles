@@ -1,18 +1,13 @@
 return {
     "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
+    cmd = 'AvanteAsk',
     opts = {
         provider = "ollama",
-        vendors = {
-            ollama = {
-                __inherited_from = "openai",
-                api_key_name = "",
-                endpoint = "http://127.0.0.1:11434/v1",
-                -- model = "deepseek-coder:6.7b",
-                model = "stable-code",
-                disable_tools = true,
-            },
+        ollama = {
+            endpoint = "http://127.0.0.1:11434",
+            model = "qwq:32b",
+            -- model = "deepseek-coder:6.7b",
+            -- model = "stable-code",
         },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

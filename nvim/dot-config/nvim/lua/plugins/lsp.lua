@@ -156,6 +156,20 @@ return {
                             }
                         })
                     end,
+                    pylsp = function()
+                        lspconfig.pylsp.setup({
+                            capabilities = load_capabilities(),
+                            settings = {
+                                pylsp = {
+                                    plugins = {
+                                        pycodestyle = {
+                                            maxLineLength = 120,
+                                        },
+                                    },
+                                },
+                            },
+                        })
+                    end
                 },
             })
         end

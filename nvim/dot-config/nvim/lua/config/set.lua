@@ -63,3 +63,6 @@ vim.opt.list             = true
 vim.opt.listchars        = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.opt.linebreak        = true
+
+vim.opt.spelloptions     = 'camel'
+vim.opt.spell            = true

@@ -139,6 +139,15 @@ return {
                         lspconfig.html.setup({
                             capabilities = load_capabilities(),
                             filetypes = { 'html', 'gotmpl' },
+                            settings = {
+                                html = {
+                                    format = {
+                                        indentHandlbars = true,
+                                        templating = 'handlbars',
+                                        wrapAttributes = 'preserve-aligned',
+                                    }
+                                }
+                            }
                         })
                     end,
                     gopls = function()
